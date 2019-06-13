@@ -175,8 +175,8 @@ const install = (Vue, options) => {
             activeElement[id] = null
           }
 
-          currentIndex[id] = index
           if (typeof currentIndex !== 'undefined' && Object.keys(activableElements).length > 0) {
+            currentIndex[id] = index
             idActiveElement = activableElements[id][currentIndex[id]]
             activeElement[id] = idActiveElement
 
