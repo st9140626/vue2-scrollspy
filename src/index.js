@@ -181,6 +181,7 @@ const install = (Vue, options) => {
             activeElement[id] = idActiveElement
 
             if (idActiveElement) {
+              document.getElementById('category-tabs').scrollTo({left: idActiveElement.offsetLeft - 16})
               idActiveElement.classList.add(idActiveElement[scrollSpyContext].options.class)
             }
           }
