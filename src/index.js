@@ -175,8 +175,8 @@ const install = (Vue, options) => {
             activeElement[id] = null
           }
 
+          currentIndex[id] = index
           if (typeof currentIndex !== 'undefined' && Object.keys(activableElements).length > 0) {
-            currentIndex[id] = index
             idActiveElement = activableElements[id][currentIndex[id]]
             activeElement[id] = idActiveElement
 
@@ -187,6 +187,13 @@ const install = (Vue, options) => {
 
           if (options.data) {
             Vue.set(vnode.context, options.data, index)
+          }
+        } else {
+          let idActiveElement = activeElement[id]
+          idActiveElement = activableElements[id][currentIndex[id]]
+          activeElement[id] = idActiveElement
+          if (idActiveElement) {
+            idActiveElement.classList.add(idActiveElement[scrollSpyContext].options.class)
           }
         }
       }
